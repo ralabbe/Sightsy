@@ -5,7 +5,7 @@ $(document).ready(function(){
 		e.preventDefault();
 		
 		$.ajax({
-			url: 'http://api.hotwire.com/v1/deal/hotel?apikey=' + HOTWIRE_API_KEY + '&limit=10&dest=' + encodeURIComponent($('#dest').val()) + '&distance=*~5&starrating=4~*&sort=price&format=jsonp', 
+			url: 'http://api.hotwire.com/v1/deal/hotel?apikey=' + HOTWIRE_API_KEY + '&limit=10&dest=' + encodeURIComponent($('#dest').val()) + '&distance=*~25&sort=price&format=jsonp', 
 			dataType: 'jsonp', 
 			success: function(data) {
 				var mainDiv = document.getElementById('main-div');
@@ -29,15 +29,17 @@ $(document).ready(function(){
 });
 
 var map;
+var marker;
 function getCoordinates(lat, lng) {
 	var latlng = new google.maps.LatLng(lat, lng);
-
-	var marker = new google.maps.Marker({
+	if(marker)
+	marker.setMap(null)
+	marker = new google.maps.Marker({
 		position: latlng,
 		map: map
 	});
 map.panTo(latlng);
-map.setZoom(8);
+map.setZoom(15);
 }
 
  	var mapDiv = document.getElementById('map-div');
