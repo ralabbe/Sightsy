@@ -1,17 +1,18 @@
 $(document).ready(function(){
 	var HOTWIRE_API_KEY = 'nh66uu2cm4au5ytg4cecf2q4';
+	var GOOGLE_MAPS_API_KEY = 'AIzaSyDxCFGOkAibs__awsnk_EycGB7FieUISOA';
 	$('#search-form').submit(function(e) {
 		e.preventDefault();
 		
 		$.ajax({
-			url: 'http://api.hotwire.com/v1/deal/hotel?apikey=' + HOTWIRE_API_KEY + '&limit=10&dest=' + $('#dest').value + '&distance=*~30&starrating=4~*&sort=price&format=jsonp', 
+			url: 'http://api.hotwire.com/v1/deal/hotel?apikey=' + HOTWIRE_API_KEY + '&limit=10&dest=' + encodeURIComponent($('#dest').val()) + '&distance=*~5&starrating=4~*&sort=price&format=jsonp', 
 			dataType: 'jsonp', 
 			success: function(data) {
 				var mainDiv = document.getElementById('main-div');
 				var mainStr = '';
 				for(var i = 0; i < data.Result.length; i++) {
 					var result = data.Result[i];
-					mainStr += '<a href="javascript:getCoordinates(' + result.NeighborhoodLatitude+ ',' + result.NeighborhoodLongitude + ')">';
+					mainStr += '<a href="javascript:getCoordinates(' + result.NeighborhoodLatitude + ',' + result.NeighborhoodLongitude + ')">';
 					mainStr += '<div class="uk-card uk-card-default">';
 					mainStr += '<div class="uk-card uk-card-body">';
 					mainStr += '<h3 class="uk-card-title headline">' + result.Headline + '</h3>';
@@ -24,8 +25,35 @@ $(document).ready(function(){
 				mainDiv.innerHTML = mainStr;
 			}
 		});
-	});
+	});	
 });
+
+var map;
+function getCoordinates(lat, lng) {
+	var latlng = new google.maps.LatLng(lat, lng);
+
+	var marker = new google.maps.Marker({
+		position: latlng,
+		map: map
+	});
+map.panTo(latlng);
+map.setZoom(8);
+}
+
+ 	var mapDiv = document.getElementById('map-div');
+	//var LatLng = {lat: result.NeighborhoodLatitude, lng: result.NeighborhoodLongitude};
+	function initMap() {
+		map = new google.maps.Map(mapDiv, {
+			center: new google.maps.LatLng(37.09024, -95.712891),
+			zoom: 4
+		});
+/* 		var marker = new google.maps.Marker({
+			position: LatLng,
+			map: map
+		}); */
+	} 
+
+
 //     $('#button').click(function(){
 //         $.ajax({
 //             url:"http://api.hotwire.com/v1/deal/hotel?apikey=nh66uu2cm4au5ytg4cecf2q4&limit=3&dest=NYC&distance=*~30&starrating=4~*&sort=price&format=jsonp",
