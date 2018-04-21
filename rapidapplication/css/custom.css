@@ -1,0 +1,59 @@
+body{
+  font-family: futura;
+}
+
+#one{
+  background-image: url("../img/splash.jpg");
+  background-size: cover;
+}
+
+#one h1{
+  font-size: 5rem;
+  letter-spacing: 4px;
+}
+
+h2{
+  font-size: 2rem;
+  letter-spacing: 3px;
+  color: white
+}
+
+#one form{
+  width: 100%;
+}
+
+#one input {
+  padding: 1.5rem;
+  width: 50rem;
+  z-index: -1 !important;
+  background-color: rgba(255, 255, 255, .4);
+  color:#2a2d34;
+}
+
+#one input::placeholder{
+  color:#2a2d34;
+}
+
+#one button{
+  background: #e54b4b;
+  border-style: none;
+  margin-left: -125px;
+  z-index: 1 !important;
+}
+
+#two .card{
+  height: 40%;
+}
+
+h3{
+  color:#ff6b35 !important;
+  letter-spacing: 4px;
+}
+
+#three{
+  background-color: #2a2d34;
+}
+
+#three .uk-card-default{
+  box-shadow: 0 5px 15px rgba(0,0,0, .85);
+}
