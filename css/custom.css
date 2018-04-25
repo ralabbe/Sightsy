@@ -1,0 +1,85 @@
+body{
+	font-family: futura;
+}
+
+h2,h3{
+	letter-spacing: 3px;
+}
+
+.text-white {
+	color: white !important;
+}
+
+.uk-text-primary {
+	color: #ff6b35 !important;
+}
+
+.uk-button-default {
+	background-color: #ff6b35 !important;
+	color: white;
+	border: none;
+}
+
+.uk-button-default:hover {
+	background-color: #ff4400 !important;
+	color: white;
+}
+
+nav {
+	background-color: #ff6b35 !important;
+}
+
+#nav-logo img {
+	width: 150px;
+	height: auto;
+}
+
+.uk-navbar-container #dest {
+	background-color: white !important;
+	border: none;
+	padding: 1em;
+}
+
+/* Home Page */
+
+	#one{
+		background-image: url("../img/splash.jpg");
+		background-size: cover;
+	}
+
+	#one input {
+		padding: 1em;
+		z-index: -1 !important;
+		background-color: rgba(255, 255, 255, .1);
+		color:#2a2d34;
+	}
+
+	#two .uk-card{
+		height: 40%;
+		box-shadow: none;
+	}
+
+	#three{
+		background-color: #2a2d34;
+	}
+
+	#three .uk-card-default{
+		box-shadow: 0 5px 15px rgba(0,0,0, .85);
+	}
+
+/* Results Page */
+
+	#map-div {
+		height: 30vh;
+		width: 100%;
+	}
+
+	input[type="search"]:disabled {
+		border: none;
+	}
+
+	.slider-button {
+		background-color: rgba(255, 255, 255, .8);
+		padding: 40px 20px;
+		box-shadow: 0 0 10px ;
+	}
