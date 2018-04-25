@@ -1,9 +1,12 @@
-body{
-	font-family: futura;
+@import url("https://use.typekit.net/mom1lpu.css");
+
+body {
+	font-family: "futura-pt", Futura, Helvetica, Arial, sans-serif;
 }
 
-h2,h3{
-	letter-spacing: 3px;
+h1,h2,h3,h4,h5 {
+	font-family: "futura-pt", Futura, Helvetica, Arial, sans-serif;
+	letter-spacing: 2px;
 }
 
 .text-white {

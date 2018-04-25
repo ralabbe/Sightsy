@@ -22,144 +22,9 @@ include('./inc/header.php');
 <div id="map-div"></div>
 
 <div class="uk-position-relative uk-visible-toggle" uk-slider="sets: true">
-    <ul class="uk-slider-items uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-4@m uk-child-width-1-5@l uk-child-width-1-6@xl uk-grid">
-        <li>
-        	<img src="">
-			<div class="uk-card uk-card-small uk-margin">
-                <div class="uk-card-media-top">
-                    <img src="img/miami.jpg" alt="">
-                </div>
-                <div class="uk-card-body">
-                    <h3 class="uk-card-title">Miami, FL</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
-                </div>
-                <div class="uk-card-footer">
-					<a href="results.php?dest=miami" class="uk-button uk-button-default">Explore</a>
-                </div>
-            </div>
-   		</li>
-   		<li>
-        	<img src="">
-			<div class="uk-card uk-card-small uk-margin">
-                <div class="uk-card-media-top">
-                    <img src="img/miami.jpg" alt="">
-                </div>
-                <div class="uk-card-body">
-                    <h3 class="uk-card-title">Miami, FL</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
-                </div>
-                <div class="uk-card-footer">
-					<a href="results.php?dest=miami" class="uk-button uk-button-default">Explore</a>
-                </div>
-            </div>
-   		</li>
-   		<li>
-        	<img src="">
-			<div class="uk-card uk-card-small uk-margin">
-                <div class="uk-card-media-top">
-                    <img src="img/miami.jpg" alt="">
-                </div>
-                <div class="uk-card-body">
-                    <h3 class="uk-card-title">Miami, FL</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
-                </div>
-                <div class="uk-card-footer">
-					<a href="results.php?dest=miami" class="uk-button uk-button-default">Explore</a>
-                </div>
-            </div>
-   		</li>
-   		<li>
-        	<img src="">
-			<div class="uk-card uk-card-small uk-margin">
-                <div class="uk-card-media-top">
-                    <img src="img/miami.jpg" alt="">
-                </div>
-                <div class="uk-card-body">
-                    <h3 class="uk-card-title">Miami, FL</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
-                </div>
-                <div class="uk-card-footer">
-					<a href="results.php?dest=miami" class="uk-button uk-button-default">Explore</a>
-                </div>
-            </div>
-   		</li>
-   		<li>
-        	<img src="">
-			<div class="uk-card uk-card-small uk-margin">
-                <div class="uk-card-media-top">
-                    <img src="img/miami.jpg" alt="">
-                </div>
-                <div class="uk-card-body">
-                    <h3 class="uk-card-title">Miami, FL</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
-                </div>
-                <div class="uk-card-footer">
-					<a href="results.php?dest=miami" class="uk-button uk-button-default">Explore</a>
-                </div>
-            </div>
-   		</li>
-   		<li>
-        	<img src="">
-			<div class="uk-card uk-card-small uk-margin">
-                <div class="uk-card-media-top">
-                    <img src="img/miami.jpg" alt="">
-                </div>
-                <div class="uk-card-body">
-                    <h3 class="uk-card-title">Miami, FL</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
-                </div>
-                <div class="uk-card-footer">
-					<a href="results.php?dest=miami" class="uk-button uk-button-default">Explore</a>
-                </div>
-            </div>
-   		</li>
-   		<li>
-        	<img src="">
-			<div class="uk-card uk-card-small uk-margin">
-                <div class="uk-card-media-top">
-                    <img src="img/miami.jpg" alt="">
-                </div>
-                <div class="uk-card-body">
-                    <h3 class="uk-card-title">Miami, FL</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
-                </div>
-                <div class="uk-card-footer">
-					<a href="results.php?dest=miami" class="uk-button uk-button-default">Explore</a>
-                </div>
-            </div>
-   		</li>
-   		<li>
-        	<img src="">
-			<div class="uk-card uk-card-small uk-margin">
-                <div class="uk-card-media-top">
-                    <img src="img/miami.jpg" alt="">
-                </div>
-                <div class="uk-card-body">
-                    <h3 class="uk-card-title">Miami, FL</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
-                </div>
-                <div class="uk-card-footer">
-					<a href="results.php?dest=miami" class="uk-button uk-button-default">Explore</a>
-                </div>
-            </div>
-   		</li>
-   		<li>
-        	<img src="">
-			<div class="uk-card uk-card-small uk-margin">
-                <div class="uk-card-media-top">
-                    <img src="img/miami.jpg" alt="">
-                </div>
-                <div class="uk-card-body">
-                    <h3 class="uk-card-title">Miami, FL</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
-                </div>
-                <div class="uk-card-footer">
-					<a href="results.php?dest=miami" class="uk-button uk-button-default">Explore</a>
-                </div>
-            </div>
-   		</li>
-
-</ul>
+    <ul class="uk-slider-items uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-4@m uk-child-width-1-5@l uk-child-width-1-6@xl uk-grid" id="main-div">
+        
+	</ul>
 	<a class="uk-position-center-left uk-position-small uk-hidden-hover slider-button" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
     <a class="uk-position-center-right uk-position-small uk-hidden-hover slider-button" href="#" uk-slidenav-next uk-slider-item="next"></a>
 
@@ -189,7 +54,7 @@ include('./inc/header.php');
 	<label></label>
 </div>
 <div class="wrapper" style="display:flex;">
-	<div id="main-div">
+	<div >
 		<!-- <div class="uk-card uk-card-default">
 			<div class="uk-card-media-top">
 				<img src="" alt="">

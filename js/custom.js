@@ -1,11 +1,5 @@
 $(document).ready(function(){
 
-	/*$("#dest").on('click', function(){
-		var bool = this.disabled;
-		console.log(bool);
-		bool = !bool;
-	});*/
-
 	// Submit home page search with icon
 	$("#search_btn").on("click",function(x) {
 		x.preventDefault();
@@ -20,30 +14,41 @@ $(document).ready(function(){
 	
 	var HOTWIRE_API_KEY = 'nh66uu2cm4au5ytg4cecf2q4';
 	var GOOGLE_MAPS_API_KEY = 'AIzaSyDxCFGOkAibs__awsnk_EycGB7FieUISOA';
-
+	var hotelImg = ["room01.jpg", "room02.jpg", "room03.jpg", "room04.jpg", "room05.jpg","room06.jpg", "room07.jpg", "room08.jpg", "room09.jpg", "room10.jpg", "room11.jpg","room12.jpg", "room13.jpg", "room14.jpg","room15.jpg", "room16.jpg", "room17.jpg"];
+	
 	// Search form submit
 	$('#search-form').submit(function(e) {
 		e.preventDefault();
 		
 		$.ajax({
-			url: 'http://api.hotwire.com/v1/deal/hotel?apikey=' + HOTWIRE_API_KEY + '&limit=10&dest=' + encodeURIComponent($('#dest').val()) + '&distance=*~25&sort=price&sortorder=' + sortOrder + '&starrating=' + starRating + '&format=jsonp', 
+			url: 'http://api.hotwire.com/v1/deal/hotel?apikey=' + HOTWIRE_API_KEY + '&limit=18&dest=' + encodeURIComponent($('#dest').val()) + '&distance=*~25&sort=price&sortorder=' + sortOrder + '&starrating=' + starRating + '&format=jsonp', 
 			dataType: 'jsonp', 
 			success: function(data) {
-				var mainDiv = document.getElementById('main-div');
+				var mainDiv = $("#main-div");
+				mainDiv.html('');
 				var mainStr = '';
 				for(var i = 0; i < data.Result.length; i++) {
+
+					var randPic = hotelImg[Math.floor(Math.random()*hotelImg.length)];
 					var result = data.Result[i];
-					mainStr += '<a href="javascript:getCoordinates(' + result.NeighborhoodLatitude + ',' + result.NeighborhoodLongitude + ')">';
-					mainStr += '<div class="uk-card uk-card-default">';
-					mainStr += '<div class="uk-card uk-card-body">';
-					mainStr += '<h3 class="uk-card-title headline">' + result.Headline + '</h3>';
-					mainStr += '<p>$' + Math.round(result.Price) + '</p>';
-					mainStr += '</div>';
-					mainStr += '</div>';
-					mainStr += '</a>';
+					mainStr += '<li>'; // Create list item
+					mainStr += '<img src="">'; // Append img
+					mainStr += '<div class="uk-card uk-card-small uk-margin">'; // Create card div
+					mainStr += '<a href="javascript:getCoordinates(' + result.NeighborhoodLatitude + ',' + result.NeighborhoodLongitude + ')">'; // Create map coordinates link
+					mainStr += '<div class="uk-card-media-top">'; // Card image div
+					mainStr += '<img src="img/rooms/' + randPic + '" alt="Hotel">'; // Card image
+					mainStr += '</div>'; // End image div
+					mainStr += '<div class="uk-card-body">'; // Hotel name div
+					mainStr += '<h3 class="uk-card-title">' + result.Headline + '</h3>'; // Hotel info
+					mainStr += '</div>'; // End hotel name div
+					mainStr += '</a>'; // End map coordinates link
+					mainStr += '<div class="uk-card-footer">'; // Footer div
+					mainStr += '<a href="' + result.Url + '" class="uk-button uk-button-default" target="_blank">Book Hotel</a>'; // Explore link
+					mainStr += '</div></div>';// End footer div and card div
+					mainStr += '</li>'; // End list item
 				}
 
-				mainDiv.innerHTML = mainStr;
+				mainDiv.append(mainStr);
 			}
 		});
 	});
@@ -96,7 +101,7 @@ function getCoordinates(lat, lng) {
 	
 	circle = new google.maps.Circle({
 		map: map,
-		radius: 1609,
+		radius: 3000,
 		fillColor: '#FF6B35',
 		strokeWeight: 0
 	});
@@ -137,7 +142,6 @@ function getCoordinates(lat, lng) {
 		
     function createMarker(place) {
 
-		var placeLoc = place.geometry.location;
 	/*	if(isInArray(place.types, 'restaurant')){
 			placeIcon = 'https://cdn4.iconfinder.com/data/icons/food-3-7/65/136-512.png';
 		} else if(isInArray(place.types, 'amusement_park')) {
@@ -163,42 +167,6 @@ function getCoordinates(lat, lng) {
 			infowindow.open(map, this);
         });
     }
-	
-	var iconBase = './img/marker-icons/';
-	var icons = {
-		amusement_park: {
-			icon: iconBase + 'theme_park_icon.png'
-		},
-		museum: {
-			icon: iconBase + 'museum.png'
-		},
-		restaurant: {
-			icon: iconBase + 'food_and_drink.png'
-		},
-		//liveMusic: {
-			//icon: iconBase + 'live_music.png'
-		//},
-		art_gallery: {
-			icon: iconBase + 'performing_arts.png'
-		},
-		park: {
-			icon: iconBase + 'parks_and_rec.png'
-		},
-		stadium: {
-			icon: iconBase + 'sporting_events.png'
-		},
-		night_club: {
-			icon: iconBase + 'nightlife.png'
-		}
-	};
-
-	/* function addMarker(feature) {
-		var marker = new google.maps.Marker({
-			position: feature.position,
-			icon: icons[feature.type].icon,
-			map: map
-		});
-	} */
 }
 
 var mapDiv = document.getElementById('map-div');

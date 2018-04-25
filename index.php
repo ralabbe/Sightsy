@@ -7,7 +7,7 @@ include('./inc/header.php');
     	<div id="one" class="section uk-light">
 
 			<div class="uk-text-center uk-animation-fade uk-flex-center" uk-grid>
-				<img src="../img/logo_w.png" alt="Sightsy Logo">
+				<img src="./img/logo_w.png" alt="Sightsy Logo">
 				<h3 class="uk-width-1-1@s uk-margin text-white">Make the most out of your adventure</h3>
 
         		<!-- Search Bar-->
