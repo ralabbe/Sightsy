@@ -39,7 +39,7 @@ $(document).ready(function(){
 					mainStr += '<img src="img/rooms/' + randPic + '" alt="Hotel">'; // Card image
 					mainStr += '</div>'; // End image div
 					mainStr += '<div class="uk-card-body">'; // Hotel name div
-					mainStr += '<h3 class="uk-card-title">' + result.Headline + '</h3>'; // Hotel info
+					mainStr += '<h5>' + result.Headline + '</h5>'; // Hotel info
 					mainStr += '</div>'; // End hotel name div
 					mainStr += '</a>'; // End map coordinates link
 					mainStr += '<div class="uk-card-footer">'; // Footer div
@@ -49,8 +49,68 @@ $(document).ready(function(){
 				}
 
 				mainDiv.append(mainStr);
+
+
+
+				var ebKey = "6TQP4FQ6Y4VLCMBGFN4E"; // EventBrite Key
+				var location = "&location.latitude=" + result.NeighborhoodLatitude + "&location.longitude=" + result.NeighborhoodLongitude;
+
+				var settings = {
+					"async": true,
+					"crossDomain": true,
+					"url": "https://www.eventbriteapi.com/v3/events/search/?token=" + ebKey + location + "&location.within=50mi",
+					"method": "GET",
+				};
+
+				$.ajax(settings).done(function(data) {
+					var eventDiv = $("#event-div");
+					eventDiv.html('');
+					var mainStr = '';
+					for (i in data.events) {
+						var event = data.events[i];
+						var title = event.name.text;
+						var date = new Date(event.start.local);
+						var date = date.getMonth() + 1 + "/" + date.getDate()
+
+						if(event.logo) {
+							image = "<img src='" + event.logo.url + "' alt='" + title + "'>";
+						} else {
+							image = "<img src='https://www.eventbrite.com/static/images/search/placeholder1.png' alt='" + title + "'>";
+						}
+
+						if (i <= 18) {
+						
+							mainStr += '<li>'; // Create list item
+							mainStr += '<img src="">'; // Append img
+							mainStr += '<div class="uk-card uk-card-small uk-margin">'; // Create card div
+							
+							mainStr += '<div class="uk-card-media-top">'; // Card image div
+							mainStr += image; // Card image
+							mainStr += '</div>'; // End image div
+							mainStr += '<div class="uk-card-body">'; // Hotel name div
+							mainStr += '<h5>' + title + '</h5>'; // Hotel info
+							mainStr += '</div>'; // End hotel name div
+
+							mainStr += '<div class="uk-card-footer">'; // Footer div
+							mainStr += '<a href="' + event.url + '" class="uk-button uk-button-default" target="_blank">More Info</a>'; // Explore link
+							mainStr += '</div></div>';// End footer div and card div
+							mainStr += '</li>'; // End list item
+						}				
+					}
+
+
+					// Append search results and back to top button
+					eventDiv.append(mainStr);
+
+					
+				});
+
+
 			}
 		});
+
+
+		
 	});
 
 	var url = window.location.href;
@@ -174,7 +234,7 @@ var mapDiv = document.getElementById('map-div');
 function initMap() {
 	map = new google.maps.Map(mapDiv, {
 		center: new google.maps.LatLng(37.09024, -95.712891),
-		zoom: 6
+		zoom: 4
 	});
 /* 		var marker = new google.maps.Marker({
 			position: LatLng,

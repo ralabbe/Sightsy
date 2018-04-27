@@ -57,6 +57,16 @@ nav {
 		color:#2a2d34;
 	}
 
+	#dest:focus {
+		background-color: white !important;
+		color: black !important;
+   		transition: background-color 0.2s ease-in 0s; 
+	}
+
+	#dest:focus a path, #dest:focus a circle {
+		stroke: red !important;
+	}
+
 	#two .uk-card{
 		height: 40%;
 		box-shadow: none;

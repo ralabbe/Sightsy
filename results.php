@@ -31,6 +31,17 @@ include('./inc/header.php');
     <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
 </div>
 
+
+<div class="uk-position-relative uk-visible-toggle" uk-slider="sets: true">
+    <ul class="uk-slider-items uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-4@m uk-child-width-1-5@l uk-child-width-1-6@xl uk-grid" id="event-div">
+        
+	</ul>
+	<a class="uk-position-center-left uk-position-small uk-hidden-hover slider-button" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+    <a class="uk-position-center-right uk-position-small uk-hidden-hover slider-button" href="#" uk-slidenav-next uk-slider-item="next"></a>
+
+    <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
+</div>
+<!--
 <div class="uk-button uk-form-select" data-uk-form-select>
 	<label>Price</label>
 	<select id="price-select">
@@ -63,9 +74,9 @@ include('./inc/header.php');
 				<h3 class="uk-card-title headline"></h3>
 				<p></p>
 			</div>
-		</div> -->
+		</div>
 	</div>
 
 </div>
-
+ -->
 <?php include('./inc/footer.php'); ?>
