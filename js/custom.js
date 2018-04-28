@@ -2,9 +2,9 @@ $(document).ready(function(){
 
 	// Submit home page search with icon
 	$("#search_btn").on("click",function(x) {
+		console.log('test');
 		x.preventDefault();
-		$("#home-search").submit();
-
+		$("#search-form").submit();
 	});
 
 	// Initialize fullpage
@@ -32,7 +32,6 @@ $(document).ready(function(){
 					var randPic = hotelImg[Math.floor(Math.random()*hotelImg.length)];
 					var result = data.Result[i];
 					mainStr += '<li>'; // Create list item
-					mainStr += '<img src="">'; // Append img
 					mainStr += '<div class="uk-card uk-card-small uk-margin">'; // Create card div
 					mainStr += '<a href="javascript:getCoordinates(' + result.NeighborhoodLatitude + ',' + result.NeighborhoodLongitude + ')">'; // Create map coordinates link
 					mainStr += '<div class="uk-card-media-top">'; // Card image div
@@ -81,14 +80,13 @@ $(document).ready(function(){
 						if (i <= 18) {
 						
 							mainStr += '<li>'; // Create list item
-							mainStr += '<img src="">'; // Append img
 							mainStr += '<div class="uk-card uk-card-small uk-margin">'; // Create card div
 							
 							mainStr += '<div class="uk-card-media-top">'; // Card image div
 							mainStr += image; // Card image
 							mainStr += '</div>'; // End image div
 							mainStr += '<div class="uk-card-body">'; // Hotel name div
-							mainStr += '<h5>' + title + '</h5>'; // Hotel info
+							mainStr += '<h5 class="uk-text-truncate">' + title + '</h5>'; // Hotel info
 							mainStr += '</div>'; // End hotel name div
 
 							mainStr += '<div class="uk-card-footer">'; // Footer div
@@ -102,16 +100,10 @@ $(document).ready(function(){
 					// Append search results and back to top button
 					eventDiv.append(mainStr);
 
-					
-				});
-
-
-			}
-		});
-
-
-		
-	});
+				}); // End Event AJAX request
+			} // End AJAX success
+		}); // End Hotels AJAX request
+	}); // End form submit function
 
 	var url = window.location.href;
 	var tail = url.split('?')[1];
@@ -122,7 +114,7 @@ $(document).ready(function(){
 	}
 	$('#price-select').change(setSortOrder);
 	$('#star-select').change(setStarRating);
-});
+}); // End window onload
 
 
 var sortOrder = 'asc';
@@ -142,7 +134,7 @@ function setStarRating() {
 
 var map;
 var marker;
-var circle;
+
 function getCoordinates(lat, lng) {	
 	var placeIcon = './img/marker.png';
 	
@@ -156,17 +148,7 @@ function getCoordinates(lat, lng) {
 		icon: placeIcon
 	});
 	
-	if(circle)
-	circle.setMap(null);
-	
-	circle = new google.maps.Circle({
-		map: map,
-		radius: 3000,
-		fillColor: '#FF6B35',
-		strokeWeight: 0
-	});
-	
-	circle.bindTo('center', marker, 'position');
+
 	map.panTo(latlng);
 	map.setZoom(14);
 	
@@ -185,8 +167,6 @@ function getCoordinates(lat, lng) {
 				for (x = 1; x < avoid.length; x++){
 		    		var typefilter = avoid[x];
 		    		if(results[i].types.includes("test")){
-		    			console.log(results[i]);
-		    			console.log("Found: " + typefilter);
 			    		return;
 			    	} else {
 			    		createMarker(results[i]);
@@ -201,43 +181,22 @@ function getCoordinates(lat, lng) {
 	}
 		
     function createMarker(place) {
-
-	/*	if(isInArray(place.types, 'restaurant')){
-			placeIcon = 'https://cdn4.iconfinder.com/data/icons/food-3-7/65/136-512.png';
-		} else if(isInArray(place.types, 'amusement_park')) {
-			placeIcon = 'http://www.myiconfinder.com/uploads/iconsets/a5485b563efc4511e0cd8bd04ad0fe9e.png';
-		} else if(isInArray(place.types, 'museum')) {
-			placeIcon = './img/marker-icons/museum.png';
-		} else if(isInArray(place.types, 'art_gallery')) {
-			placeIcon = './img/marker-icons/performing_arts.png';
-		} else if(isInArray(place.types, 'park')) {
-			placeIcon = './img/marker-icons/parks_and_rec.png';
-		} else if(isInArray(place.types, 'stadium')) {
-			placeIcon = './img/marker-icons/sporting_events.png';
-		} else if(isInArray(place.types, 'night_club')) {
-			placeIcon = './img/marker-icons/nightlife.png';
-		}*/
         var marker = new google.maps.Marker({
 			map: map,
 			position: place.geometry.location,
         });
 
         google.maps.event.addListener(marker, 'click', function() {
-			infowindow.setContent(place.name);
+			infowindow.setContent("<b><a href='https://www.google.com/maps/place/?q=place_id:" + place.place_id + "'target='_blank'>" + place.name + "</a></b><br>" + place.vicinity);
 			infowindow.open(map, this);
         });
     }
 }
 
 var mapDiv = document.getElementById('map-div');
-//var LatLng = {lat: result.NeighborhoodLatitude, lng: result.NeighborhoodLongitude};
 function initMap() {
 	map = new google.maps.Map(mapDiv, {
 		center: new google.maps.LatLng(37.09024, -95.712891),
 		zoom: 4
 	});
-/* 		var marker = new google.maps.Marker({
-			position: LatLng,
-			map: map
-		}); */
 }

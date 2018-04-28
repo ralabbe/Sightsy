@@ -53,18 +53,14 @@ nav {
 	#one input {
 		padding: 1em;
 		z-index: -1 !important;
-		background-color: rgba(255, 255, 255, .1);
+		background-color: rgba(255, 255, 255, .0);
 		color:#2a2d34;
-	}
-
-	#dest:focus {
-		background-color: white !important;
-		color: black !important;
    		transition: background-color 0.2s ease-in 0s; 
 	}
 
-	#dest:focus a path, #dest:focus a circle {
-		stroke: red !important;
+	#dest:focus {
+		background-color:  rgba(255, 255, 255, .1);
+   		transition: background-color 0.2s ease-in 0s; 
 	}
 
 	#two .uk-card{
@@ -89,6 +85,15 @@ nav {
 
 	input[type="search"]:disabled {
 		border: none;
+	}
+
+	.results-div .uk-padding-large {
+		padding-top: 20px;
+		padding-bottom: 10px;
+	}
+
+	.results-div .uk-padding-large:nth-child(even) {
+		background-color: #f2f2f2;
 	}
 
 	.slider-button {
