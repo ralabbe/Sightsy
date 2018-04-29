@@ -17,16 +17,14 @@ include('./inc/connect.php');
 			    <div uk-dropdown="mode: click">
 			    	<form id="loginForm">
 
-			    		<div>
 				            <label>Username: </label><input class="uk-input" type="text" name="username" placeholder="Username">
 				            <label>Password: </label><input class="uk-input" type="password" name="password" placeholder="Password">
-				        </div>
+
 
 				        <input type="checkbox" class="uk-checkbox uk-margin" name="register" id="register" value="register" /> <label for="register">Register
 
-				        <div class="">
 				        	 <button class="uk-button uk-button-default" name="submit" value="Login" id="loginSubmit">Login</button>
-				        </div>
+
 				        <div class="loginerror"></div>
 			    	</form>
 			    </div>

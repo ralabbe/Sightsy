@@ -123,7 +123,7 @@ $(document).ready(function(){
 
 	$('body').on("click","#logoutbtn",function(){
 		localStorage.removeItem("sightsyaccount");
-		$('.navWelcome').html('<button class="uk-button uk-button-default login-btn" type="button">Login</button><div uk-dropdown><form id="loginForm"><div class="uk-margin"><label>Username: </label><input class="uk-input" type="text" name="username" placeholder="Username"><label>Password: </label><input class="uk-input" type="password" name="password" placeholder="Password"></div><div class="uk-margin"><button class="uk-button uk-button-default" name="submit" value="Login" id="loginSubmit">Login</button></div></form></div>')
+		$('.navWelcome').html('<button class="uk-button uk-button-default login-btn" type="button">Login</button><div uk-dropdown><form id="loginForm"><label>Username: </label><input class="uk-input" type="text" name="username" placeholder="Username"><label>Password: </label><input class="uk-input" type="password" name="password" placeholder="Password"><input type="checkbox" class="uk-checkbox uk-margin" name="register" id="register" value="register" /> <label for="register">Register<button class="uk-button uk-button-default" name="submit" value="Login" id="loginSubmit">Login</button></form></div>')
 	});
 
 	$('body').on('submit','#loginForm', function(event){
