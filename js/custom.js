@@ -112,8 +112,47 @@ $(document).ready(function(){
 		$('#dest').val(mySearch);
 		$('#search-form').submit();
 	}
+
 	$('#price-select').change(setSortOrder);
 	$('#star-select').change(setStarRating);
+
+	if(localStorage.getItem("sightsyaccount")) {
+		var accountname = localStorage.getItem("sightsyaccount");
+		$('.navWelcome').html("Welcome " + accountname + ". <a class='uk-margin uk-link-text' id='logoutbtn'>Logout</a>");
+	}
+
+	$('body').on("click","#logoutbtn",function(){
+		localStorage.removeItem("sightsyaccount");
+		$('.navWelcome').html('<button class="uk-button uk-button-default login-btn" type="button">Login</button><div uk-dropdown><form id="loginForm"><div class="uk-margin"><label>Username: </label><input class="uk-input" type="text" name="username" placeholder="Username"><label>Password: </label><input class="uk-input" type="password" name="password" placeholder="Password"></div><div class="uk-margin"><button class="uk-button uk-button-default" name="submit" value="Login" id="loginSubmit">Login</button></div></form></div>')
+	});
+
+	$('body').on('submit','#loginForm', function(event){
+			
+		event.preventDefault();
+
+		var forminfo = $(this).serialize();
+
+		$.get('account.php', forminfo, function(data){ // Creates a post request with info in place of submit default
+			accountinfo = JSON.parse(data);
+
+			if (accountinfo['status'] == "success") { // If login is successful, close modal and log in.
+				console.log('test');
+				localStorage.setItem("sightsyaccount", accountinfo['username']); // Save account info to local storage
+				$('#loginForm')[0].reset();
+				$('.navWelcome').html("Welcome " + accountinfo['username'] + ". <a class='uk-margin uk-link-text' id='logoutbtn'>Logout</a>");
+
+				
+
+			} else { // If login fails, display error message.
+				$('.loginerror').html(accountinfo['info']);
+			}
+
+		});
+	});
+
+
+
+
 }); // End window onload
 
 

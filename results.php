@@ -1,14 +1,41 @@
 <?php
 include('./inc/header.php');
+include('./inc/connect.php');
+
+
+
 ?>
 
 <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; bottom: #transparent-sticky-navbar">
-    <nav class="uk-navbar-container uk-padding-small uk-position-relative" uk-navbar style="z-index: 980;">
-		<div class="uk-navbar-left" id="nav-logo">
-			<a href="index.php"><img src="./img/logo_ws.png" alt="logo"></a>
+    <nav class="uk-navbar-container uk-position-relative" uk-navbar style="z-index: 980;">
+		<div class="uk-navbar-left text-white" id="nav-logo">
+			<a href="index.php" class=" uk-padding-small"><img src="./img/logo_ws.png" alt="logo"></a>
+
+			<div class="uk-inline navWelcome">
+
+			    <button class="uk-button uk-button-default login-btn" type="button">Login</button>
+			    <div uk-dropdown="mode: click">
+			    	<form id="loginForm">
+
+			    		<div>
+				            <label>Username: </label><input class="uk-input" type="text" name="username" placeholder="Username">
+				            <label>Password: </label><input class="uk-input" type="password" name="password" placeholder="Password">
+				        </div>
+
+				        <input type="checkbox" class="uk-checkbox uk-margin" name="register" id="register" value="register" /> <label for="register">Register
+
+				        <div class="">
+				        	 <button class="uk-button uk-button-default" name="submit" value="Login" id="loginSubmit">Login</button>
+				        </div>
+				        <div class="loginerror"></div>
+			    	</form>
+			    </div>
+
+			</div>
 		</div>
 
-    	<div class="uk-navbar-right">
+
+    	<div class="uk-navbar-right uk-padding-small">
 			<form class="uk-search uk-search-default" method="GET" action="" id="search-form">
 				<input class="uk-search-input uk-border-rounded uk-text-capitalize" name="dest" id="dest" type="search" placeholder="Let's explore" >
 				<a href="#" class="uk-search-icon-flip" id="search_btn" uk-search-icon></a>
