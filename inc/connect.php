@@ -1,5 +1,6 @@
 <?php
-// Set to localhost
+// Set to localhost. Replace with your database info.
+// The only table required for this project is one titled 'account' with 3 columns 'id', 'username', and 'password'
 
 $dbserver = "localhost";
 $dbuser = "root";
