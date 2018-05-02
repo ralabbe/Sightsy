@@ -8,7 +8,6 @@ $(document).ready(function(){ // On window load
 
 	// Generic hotel image array
 	var hotelImg = ["room01.jpg", "room02.jpg", "room03.jpg", "room04.jpg", "room05.jpg","room06.jpg", "room07.jpg", "room08.jpg", "room09.jpg", "room10.jpg", "room11.jpg","room12.jpg", "room13.jpg", "room14.jpg","room15.jpg", "room16.jpg", "room17.jpg"];
-	
 
 
 	// Search submit functionality
@@ -138,38 +137,6 @@ $(document).ready(function(){ // On window load
 		$('#dest').val(mySearch);
 		$('#search-form').submit();
 	}
-
-
-	// Login functionality
-
-	if(localStorage.getItem("sightsyaccount")) { // Checks local storage for account information
-		var accountname = localStorage.getItem("sightsyaccount");
-		$('.navWelcome').html("Welcome " + accountname + ". <a class='uk-margin uk-link-text' id='logoutbtn'>Logout</a>"); // Displays welcome message if account is found
-	}
-
-	$('body').on("click","#logoutbtn",function(){ // If logout button is clicked
-		localStorage.removeItem("sightsyaccount"); // Remove local storage info
-		// Append login button
-		$('.navWelcome').html('<button class="uk-button uk-button-default login-btn" type="button">Login</button><div uk-dropdown><form id="loginForm"><label>Username: </label><input class="uk-input" type="text" name="username" placeholder="Username"><label>Password: </label><input class="uk-input" type="password" name="password" placeholder="Password"><input type="checkbox" class="uk-checkbox uk-margin" name="register" id="register" value="register" /> <label for="register">Register<button class="uk-button uk-button-default" name="submit" value="Login" id="loginSubmit">Login</button></form></div>')
-	});
-
-	$('body').on('submit','#loginForm', function(event){ // If login form is submit
-		event.preventDefault(); // Prevents refresh
-		var forminfo = $(this).serialize(); // Serializes form data into an array
-
-		$.get('account.php', forminfo, function(data){ // Creates a get request with info sent to accounts.php
-			accountinfo = JSON.parse(data); // Parses data to be used
-
-			if (accountinfo['status'] == "success") { // If status passed from account.php is success
-				localStorage.setItem("sightsyaccount", accountinfo['username']); // Save account info to local storage
-				$('#loginForm')[0].reset(); // Reset login form
-				$('.navWelcome').html("Welcome " + accountinfo['username'] + ". <a class='uk-margin uk-link-text' id='logoutbtn'>Logout</a>"); // Appends welcome message and logout button
-			} else { // If status is not success, display error message with error info passed from account.php
-				$('.loginerror').html(accountinfo['info']);
-			}
-
-		}); // End AJAX get call
-	}); // End login form submit
 
 }); // End window onload
 

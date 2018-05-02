@@ -32,36 +32,6 @@ nav {
 	background-color: #ff6b35 !important;
 }
 
-.login-btn {
-    background-color: rgba(0,0,0,0,0) !important;
-    border: 1px solid white;
-    color: white;
-    border-radius: 10px;
-}
-
-.login-btn:hover {
-    background-color: white !important;
-    border: 1px solid white;
-    color: black;
-}
-
-.login-btn:focus {
-    border: 1px solid white;
-    color: white;
-}
-
-.login-btn input {
-    letter-spacing: 1px;
-}
-
-.uk-link-text {
-    text-decoration: underline;
-}
-
-.uk-link-text:hover {
-    color: white !important;
-}
-
 #nav-logo img {
 	width: 150px;
 	height: auto;

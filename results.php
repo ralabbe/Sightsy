@@ -1,5 +1,5 @@
 <?php
-include('./inc/header.php'); // Header include
+	include('./inc/header.php'); // Header include
 ?>
 
 <!-- Sticky Navbar -->
@@ -9,22 +9,6 @@ include('./inc/header.php'); // Header include
 		<div class="uk-navbar-left text-white" id="nav-logo">
 			<!-- Logo -->
 			<a href="index.php" class=" uk-padding-small"><img src="./img/logo_ws.png" alt="logo"></a>
-
-			<div class="uk-inline navWelcome"> <!-- Account info/login/logout -->
-
-			    <button class="uk-button uk-button-default login-btn" type="button">Login</button> <!-- Dropdown button -->
-			    <div uk-dropdown="mode:click"> <!-- Dropdown container -->
-			    	<form id="loginForm"> <!-- Login form -->
-				            <label>Username: </label><input class="uk-input" type="text" name="username" placeholder="Username" required>
-				            <label>Password: </label><input class="uk-input" type="password" name="password" placeholder="Password" required>
-				        <input type="checkbox" class="uk-checkbox uk-margin" name="register" id="register" value="register" /> <label for="register">Register
-
-				        	 <button class="uk-button uk-button-default" name="submit" value="Login" id="loginSubmit">Login</button>
-
-				        <div class="loginerror"></div> <!--  Login error message -->
-			    	</form>
-			    </div> <!--  End dropdown container -->
-			</div> <!-- End account container -->
 		</div> <!-- End left align nav container -->
 
 
