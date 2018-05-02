@@ -1,53 +1,50 @@
 <?php
-include('./inc/header.php');
-include('./inc/connect.php');
-
-
-
+include('./inc/header.php'); // Header include
 ?>
 
+<!-- Sticky Navbar -->
 <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; bottom: #transparent-sticky-navbar">
     <nav class="uk-navbar-container uk-position-relative" uk-navbar style="z-index: 980;">
+    	<!-- Left align nav container -->
 		<div class="uk-navbar-left text-white" id="nav-logo">
+			<!-- Logo -->
 			<a href="index.php" class=" uk-padding-small"><img src="./img/logo_ws.png" alt="logo"></a>
 
-			<div class="uk-inline navWelcome">
+			<div class="uk-inline navWelcome"> <!-- Account info/login/logout -->
 
-			    <button class="uk-button uk-button-default login-btn" type="button">Login</button>
-			    <div uk-dropdown="mode: click">
-			    	<form id="loginForm">
-
-				            <label>Username: </label><input class="uk-input" type="text" name="username" placeholder="Username">
-				            <label>Password: </label><input class="uk-input" type="password" name="password" placeholder="Password">
-
-
+			    <button class="uk-button uk-button-default login-btn" type="button">Login</button> <!-- Dropdown button -->
+			    <div uk-dropdown="mode:click"> <!-- Dropdown container -->
+			    	<form id="loginForm"> <!-- Login form -->
+				            <label>Username: </label><input class="uk-input" type="text" name="username" placeholder="Username" required>
+				            <label>Password: </label><input class="uk-input" type="password" name="password" placeholder="Password" required>
 				        <input type="checkbox" class="uk-checkbox uk-margin" name="register" id="register" value="register" /> <label for="register">Register
 
 				        	 <button class="uk-button uk-button-default" name="submit" value="Login" id="loginSubmit">Login</button>
 
-				        <div class="loginerror"></div>
+				        <div class="loginerror"></div> <!--  Login error message -->
 			    	</form>
-			    </div>
+			    </div> <!--  End dropdown container -->
+			</div> <!-- End account container -->
+		</div> <!-- End left align nav container -->
 
-			</div>
-		</div>
 
-
+		<!-- Right align nav container -->
     	<div class="uk-navbar-right uk-padding-small">
-			<form class="uk-search uk-search-default" method="GET" action="" id="search-form">
-				<input class="uk-search-input uk-border-rounded uk-text-capitalize" name="dest" id="dest" type="search" placeholder="Let's explore" >
-				<a href="#" class="uk-search-icon-flip" id="search_btn" uk-search-icon></a>
+			<form class="uk-search uk-search-default" method="GET" action="" id="search-form"> <!-- Search form -->
+				<input class="uk-search-input uk-border-rounded uk-text-capitalize" name="dest" id="dest" type="search" placeholder="Let's explore"> <!-- Search input -->
+				<a href="#" class="uk-search-icon-flip" id="search_btn" uk-search-icon></a> <!-- Magnifiying glass icon -->
 			</form>
-		</div>
+		</div> <!-- Ed right align nav container -->
     </nav>
-</div>
+</div> <!-- End sticky nav -->
 
 
+<!-- Google Maps container -->
+<div id="map-div"></div> 
 
-<div id="map-div"></div>
-
-<div class="results-div">
-
+<!-- Results container -->
+<div class="results-div"> 
+	<!-- Hotel Results -->
 	<div class="uk-padding-large">
 		<!-- Sorting Filters -->
 		<h2>Hotels</h2>
@@ -72,34 +69,38 @@ include('./inc/connect.php');
 					<option value="1">1 Star</option>
 				</select>
 			</div>
-		</div>
+		</div> <!-- End sorting dropdowns -->
 
-		<!-- Hotel Results -->
+		<!-- Hotwire Results -->
 		<div class="uk-position-relative uk-visible-toggle" uk-slider="sets: true">
-		    <ul class="uk-slider-items uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-4@m uk-child-width-1-5@l uk-child-width-1-6@xl uk-grid" id="main-div">
-		        
+			<ul class="uk-slider-items uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-4@m uk-child-width-1-5@l uk-child-width-1-6@xl uk-grid" id="main-div">
 			</ul>
-			<a class="uk-position-center-left uk-position-small uk-hidden-hover slider-button" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
-		    <a class="uk-position-center-right uk-position-small uk-hidden-hover slider-button" href="#" uk-slidenav-next uk-slider-item="next"></a>
 
-		    <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
+			<!-- Side page buttons -->
+			<a class="uk-position-center-left uk-position-small uk-hidden-hover slider-button" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+			<a class="uk-position-center-right uk-position-small uk-hidden-hover slider-button" href="#" uk-slidenav-next uk-slider-item="next"></a>
+
+			<!-- Pagination buttons -->
+			<ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
 		</div>
-	</div>
+	</div> <!-- End hotel results -->
 
 	<!-- Events Results -->
 	<div class="uk-padding-large">
 		<div class="uk-position-relative uk-visible-toggle" uk-slider="sets: true">
 			<h2>Nearby Events</h2>
-		    <ul class="uk-slider-items uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-4@m uk-child-width-1-5@l uk-child-width-1-6@xl uk-grid" id="event-div">
-		        
-			</ul>
+			<ul class="uk-slider-items uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-4@m uk-child-width-1-5@l uk-child-width-1-6@xl uk-grid" id="event-div"></ul>
+
+			<!-- Side page buttons -->
 			<a class="uk-position-center-left uk-position-small uk-hidden-hover slider-button" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
-		    <a class="uk-position-center-right uk-position-small uk-hidden-hover slider-button" href="#" uk-slidenav-next uk-slider-item="next"></a>
+			<a class="uk-position-center-right uk-position-small uk-hidden-hover slider-button" href="#" uk-slidenav-next uk-slider-item="next"></a>
 
-		    <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
+			<!-- Pagination buttons -->
+			<ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
 		</div>
-	</div>
+	</div> <!-- End event results -->
+</div> <!-- End results container -->
 
-</div>
-
-<?php include('./inc/footer.php'); ?>
+<?php
+	include('./inc/footer.php'); // Footer include
+?>

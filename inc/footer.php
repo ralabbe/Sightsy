@@ -1,20 +1,20 @@
 	<footer>
 	    <div class="uk-grid">
-	       <div class="uk-width-1-3@m">
+	       <div class="uk-width-1-3@m"><!-- Logo, Social Media, Copyright Info -->
 	           <img src="./img/logo_ws.png" alt="logo" id="logo-foot"><br>
 	           <a href="#"><i class="fab fa-facebook-f social-foot fb"></i></a>
 	           <a href="#"><i class="fab fa-twitter social-foot tw"></i></a>
 	           <a href="#"><i class="fab fa-instagram social-foot in"></i><br></a>
 	           <span id="copyright">&copy; 2018 Sightsy. All rights reserved.</span>
 	       </div>
-	       <div class="uk-width-1-3@m">
+	       <div class="uk-width-1-3@m"> <!-- Contact info -->
 	           <h2>Contact Us</h2>
 	           <p class="contact">contact@sightsy.com</p>
 	           <p class="contact">4000 Central Florida Boulevard<br>
 	           Orlando, FL 32816</p>
 	           <p class="contact">407-823-2000</p>
 	       </div>
-	       <div class="uk-width-1-3@m">
+	       <div class="uk-width-1-3@m"> <!-- Subscribe info (Not functional) -->
 	          <h2>Subscribe now</h2>
 	          <p class="subscribe">Sign up for our newsletter</p>
 	          <input type="text" class="input-sub" placeholder="Your e-mail address here"><button class="button-sub"><i class="fa fa-paper-plane contact" aria-hidden="true"></i></button>
